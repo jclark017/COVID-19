@@ -6,7 +6,7 @@ const fs = require('fs');
 
 const csvWriter  = require('csv-write-stream')
 var writer = csvWriter({headers: ['FIPS','Admin2','Province_State','Country_Region','Last_Update','Lat','Long_','Confirmed','Deaths','Recovered','Active','Combined_Key']})
-writer.pipe(fs.createWriteStream('output.csv'))
+writer.pipe(fs.createWriteStream('C:/Users/clark/OneDrive/Documents/GitHub/COVID-19/vscode/output.csv'))
 
 var CountryConversions = {
     "Mainland China" : "China"
