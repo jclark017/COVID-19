@@ -14,12 +14,12 @@ var countries = [
 ]
 
 var chartTypes = [
-    {"name" :"Confirmed", "location": {"left": 20, "top": 60, "position":"absolute"}, "ybasis":"zero"},
-    {"name" :"ConfirmedDailyIncrease" , "location": {"left": 20, "top": 380, "position":"absolute"}, "ybasis":"zero"},
-    {"name" :"ConfirmedSDSMA4" , "location": {"left": 20, "top": 700, "position":"absolute"}, "ybasis":"function"},
-    {"name" :"Deaths" , "location": {"left": 650, "top": 60, "position":"absolute"}, "ybasis":"zero"},
-    {"name" :"DeathsDailyIncrease" , "location": {"left": 650, "top": 380, "position":"absolute"}, "ybasis":"zero"},
-    {"name" :"DeathsSDSMA4" , "location": {"left": 650, "top": 700, "position":"absolute"}, "ybasis":"function"}
+    {"name" :"Confirmed", "location": {"left": 20, "top": 60, "position":"absolute"}, "ybasis":"zero", "title":"Confirmed Cases"},
+    {"name" :"ConfirmedDailyIncrease" , "location": {"left": 20, "top": 380, "position":"absolute"}, "ybasis":"zero", "title":"New Confirmed Cases by Day"},
+    {"name" :"ConfirmedSDSMA4" , "location": {"left": 20, "top": 700, "position":"absolute"}, "ybasis":"function", "title":"Daily New Case Growth"},
+    {"name" :"Deaths" , "location": {"left": 650, "top": 60, "position":"absolute"}, "ybasis":"zero", "title":"Deaths"},
+    {"name" :"DeathsDailyIncrease" , "location": {"left": 650, "top": 380, "position":"absolute"}, "ybasis":"zero", "title":"New Deaths by Day"},
+    {"name" :"DeathsSDSMA4" , "location": {"left": 650, "top": 700, "position":"absolute"}, "ybasis":"function", "title":"Daily New Death Growth"}
 ]
 
 // parse the date / time
@@ -100,6 +100,14 @@ function LineChart () {
                 .attr("transform", "translate(0,0)")
                 .call(d3.axisLeft(y));
 
+                // add titles
+                svg.append("text")
+                .attr("x", (width / 3))             
+                .attr("y", 0)
+                .attr("text-anchor", "middle")  
+                .style("font-size", "12px") 
+                .style("text-decoration", "underline")  
+                .text(chartType.title);
             });
         });
     });
