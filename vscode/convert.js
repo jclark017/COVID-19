@@ -19,7 +19,8 @@ insertRow = db.prepare('INSERT INTO output(FIPS,Admin2,Province_State,Country_Re
 
 /* Create the output */
 var CountryConversions = {
-    "Mainland China" : "China"
+    "Mainland China" : "China",
+    "UK" : "United Kingdom"
 }
 
 fs.readdir(csvFileFolder,function (err, files){

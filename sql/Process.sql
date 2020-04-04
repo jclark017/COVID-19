@@ -18,24 +18,33 @@ GROUP BY
 	,o.Last_Update
 	
 -- 	Summarize by country, date, with Analysis
+DROP VIEW IF EXISTS SumByCountryDateAnalysis;
+CREATE VIEW SumByCountryDateAnalysis AS
 SELECT 
 	*,
-	sum(ConfirmedDailyIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update ROWS 4 PRECEDING)
+	sum(ConfirmedDailyIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update ROWS 4 PRECEDING)/4 - 
+	sum(ConfirmedPreviousIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update ROWS 4 PRECEDING)/4 ConfirmedSDSMA4,
+	sum(DeathsDailyIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update ROWS 4 PRECEDING)/4 - 
+	sum(DeathsPreviousIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update ROWS 4 PRECEDING)/4 DeathsSDSMA4
 FROM
 	(
 		SELECT 	
 			*,
-			lag(ConfirmedDailyIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update) as ConfirmedPreviousIncrease
+			lag(ConfirmedDailyIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update) as ConfirmedPreviousIncrease,
+			lag(DeathsDailyIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update) as DeathsPreviousIncrease
 		FROM 
 			(
 				SELECT 
 					*,
 					lag(Confirmed) OVER (PARTITION BY Country_Region ORDER BY Last_Update) ConfirmedPrevious,
-					Confirmed - lag(Confirmed) OVER (PARTITION BY Country_Region ORDER BY Last_Update) as ConfirmedDailyIncrease
+					Confirmed - lag(Confirmed) OVER (PARTITION BY Country_Region ORDER BY Last_Update) as ConfirmedDailyIncrease,
+					lag(Deaths) OVER (PARTITION BY Country_Region ORDER BY Last_Update) DeathsPrevious,
+					Deaths - lag(Deaths) OVER (PARTITION BY Country_Region ORDER BY Last_Update) as DeathsDailyIncrease
 				FROM 
 					SumByCountryDate
 			) t
 	) t		
+	
 -- Summarize by country, state, date
 DROP VIEW IF EXISTS SumByCountryStateDate;
 CREATE VIEW SumByCountryStateDate AS
@@ -52,4 +61,30 @@ GROUP BY
 	,o.Last_Update	
 	,CASE WHEN o.Province_State = '' THEN o.Country_Region ELSE o.Province_State END 
 	
-	
+-- 	Summarize by country, state, with Analysis
+DROP VIEW IF EXISTS SumByCountryStateDateAnalysis;
+CREATE VIEW SumByCountryStateDateAnalysis AS
+SELECT 
+	*,
+	sum(ConfirmedDailyIncrease) OVER(PARTITION BY Country_Region, Province_State ORDER BY Last_Update ROWS 4 PRECEDING)/4 - 
+	sum(ConfirmedPreviousIncrease) OVER(PARTITION BY Country_Region, Province_State ORDER BY Last_Update ROWS 4 PRECEDING)/4 ConfirmedSDSMA4,
+	sum(DeathsDailyIncrease) OVER(PARTITION BY Country_Region, Province_State ORDER BY Last_Update ROWS 4 PRECEDING)/4 - 
+	sum(DeathsPreviousIncrease) OVER(PARTITION BY Country_Region, Province_State ORDER BY Last_Update ROWS 4 PRECEDING)/4 DeathsSDSMA4
+FROM
+	(
+		SELECT 	
+			*,
+			lag(ConfirmedDailyIncrease) OVER(PARTITION BY Country_Region, Province_State ORDER BY Last_Update) as ConfirmedPreviousIncrease,
+			lag(DeathsDailyIncrease) OVER(PARTITION BY Country_Region, Province_State ORDER BY Last_Update) as DeathsPreviousIncrease
+		FROM 
+			(
+				SELECT 
+					*,
+					lag(Confirmed) OVER (PARTITION BY Country_Region, Province_State ORDER BY Last_Update) ConfirmedPrevious,
+					Confirmed - lag(Confirmed) OVER (PARTITION BY Country_Region, Province_State ORDER BY Last_Update) as ConfirmedDailyIncrease,
+					lag(Deaths) OVER (PARTITION BY Country_Region, Province_State ORDER BY Last_Update) DeathsPrevious,
+					Deaths - lag(Deaths) OVER (PARTITION BY Country_Region, Province_State ORDER BY Last_Update) as DeathsDailyIncrease
+				FROM 
+					SumByCountryStateDate
+			) t
+	) t	

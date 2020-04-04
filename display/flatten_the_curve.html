@@ -13,49 +13,13 @@
   <meta property="og:description" content="Chart showing federal deficit history by president, year, party" />
   <meta property="fb:app_id" content="1809823809152851" />
 <style>
-    .lineUS {
+    .line{
         fill: none;
-        stroke: steelblue;
-        stroke-width: 2px;
-    }
-    .lineUK {
-        fill: none;
-        stroke: red;
-        stroke-width: 2px;
-    }
-    .lineSpain {
-        fill: none;
-        stroke: purple;
-        stroke-width: 2px;
-    }
-    .lineItaly {
-        fill: none;
-        stroke: rgb(255, 196, 0);
-        stroke-width: 2px;
-    }
-    .lineFrance {
-        fill: none;
-        stroke: green;
         stroke-width: 2px;
     }
     #legend {
-        left:820px;
+        left:1350px;
         top:60px;
-        position:absolute;
-    }
-    #svgSD {
-        left:20px;
-        top:700px;
-        position:absolute;
-    }
-    #svgTotal {
-        left:20px;
-        top:60px;
-        position:absolute;
-    }
-    #svgDaily {
-        left:20px;
-        top:380px;
         position:absolute;
     }
     /* Style text and titles */
@@ -77,23 +41,23 @@
   <div id="methodology">
     <li>An analysis of COVID-19 trajectories for hard-hit Western Countries</li>
   </div>
-  <svg id = legend width="400" height="160">
-    <rect width="300" height="155" style="fill:none;stroke-width:3;stroke:steelblue" ></rect>
+  <svg id = legend width="200" height="160">
+    <rect width="200" height="155" style="fill:none;stroke-width:3;stroke:steelblue" ></rect>
     <text x=10 y=20 style="font-size: 18px; font-weight:bold; fill:steelblue;">Legend</text>
     
     <line x1="20" y1="40" x2="60" y2="40" style="stroke:steelblue;stroke-width:5" />
     <text x=80 y=45 style="font-size: 14px;">United States</text>
 
-    <line x1="20" y1="65" x2="60" y2="65" style="stroke:steelblue;stroke-width:5" />
+    <line x1="20" y1="65" x2="60" y2="65" style="stroke:green;stroke-width:5" />
     <text x=80 y=70 style="font-size: 14px;">United Kingdom</text>
 
-    <line x1="20" y1="90" x2="60" y2="90" style="stroke:red;stroke-width:5" />
+    <line x1="20" y1="90" x2="60" y2="90" style="stroke:purple;stroke-width:5" />
     <text x=80 y=95 style="font-size: 14px;">Spain</text>
 
     <line x1="20" y1="115" x2="60" y2="115" style="stroke:rgb(255, 196, 0);stroke-width:5" />
     <text x=80 y=120 style="font-size: 14px;">Italy</text>
 
-    <line x1="20" y1="140" x2="60" y2="140" style="stroke:green;stroke-width:5" />
+    <line x1="20" y1="140" x2="60" y2="140" style="stroke:red;stroke-width:5" />
     <text x=80 y=145 style="font-size: 14px;">France</text>
 
   </svg>
@@ -102,9 +66,8 @@
 <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script src="https://d3js.org/d3-array.v2.min.js"></script>
 <script src="./flatten_the_curve.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <script>
-  SDLineChart();
-  DailyChangeChart();
-  TotalChart();
+  LineChart();
 </script>

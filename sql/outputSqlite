@@ -1,0 +1,7 @@
+.headers on
+.mode csv
+.output SumByCountryDateAnalysis.csv
+SELECT * FROM SumByCountryDateAnalysis WHERE Country_Region in ('US', 'Italy', 'Spain', 'UK', 'United Kingdom', 'France');
+.output SumByCountryStateDateAnalysis.csv
+SELECT * FROM SumByCountryStateDateAnalysis WHERE Country_Region in ('US');
+.output stdout

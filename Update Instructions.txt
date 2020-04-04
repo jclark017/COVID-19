@@ -5,9 +5,6 @@
 # Run the following slqite to generate CSVs
 
 chdir /sql
-sqlite3.exe ../vscode/output.db
-sqlite> .headers on
-sqlite> .mode csv
-sqlite> .output SumByCountryDateAnalysis.csv
-sqlite> SELECT * FROM SumByCountryDateAnalysis WHERE Country_Region in ('US', 'Italy', 'Spain', 'UK', 'United Kingdom', 'France');
-sqlite> .output stdout
+sqlite3 ../vscode/output.db ".read outputSqlite"
+
+
