@@ -27,6 +27,11 @@
         top:700px;
         position:absolute;
     }
+    #crosslink {
+        left:1350px;
+        top:260px;
+        position:absolute;
+    }
     /* Style text and titles */
     span#mainTitle {
     position:absolute;
@@ -44,9 +49,12 @@
 <body>
   <span id="mainTitle">Are We Flattening the Curve? A visualization of COVID-19 trajectories for hard-hit Western Countries.</span>
   <div id="methodology" style="width:200px;">
-    <li><b>Daily New Case/Death Growth</b> is the most important indicator of the trajectory of a pandemic. 
+    <li><b>Daily New Case/Death Growth</b> is the most sensitive indicator of the trajectory of a pandemic. 
       The line on this chart reaching zero (and continuing below zero) is the first indication that the curve 
-      is beginning to flatten. If this line is above zero, the spread is not just worsening, it is worsening at an increasing rate. </li>
+      is beginning to flatten. If this line is above zero, the curve is steepening. (i.e. the spread is not just worsening, it is worsening at an increasing rate.) </li>
+  </div>
+  <div id="crosslink" style="width:200px;">
+    <li><a href="./flatten_the_curve_state.html">Click Here</a> to view the data for each state.</li>
   </div>
   <svg id = legend width="200" height="160">
     <rect width="200" height="155" style="fill:none;stroke-width:3;stroke:steelblue" ></rect>
