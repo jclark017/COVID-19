@@ -1,0 +1,13 @@
+
+# Update the repository from the JHU master
+# Fetch the updates to local
+# Run node vscode/convert.js
+# Run the following slqite to generate CSVs
+
+chdir /sql
+sqlite3.exe ../vscode/output.db
+sqlite> .headers on
+sqlite> .mode csv
+sqlite> .output SumByCountryDateAnalysis.csv
+sqlite> SELECT * FROM SumByCountryDateAnalysis WHERE Country_Region in ('US', 'Italy', 'Spain', 'UK', 'United Kingdom', 'France');
+sqlite> .output stdout
