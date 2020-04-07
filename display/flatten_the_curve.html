@@ -29,8 +29,12 @@
     }
     #crosslink {
         left:1350px;
-        top:260px;
+        top:300px;
         position:absolute;
+    }
+    /* Style the dots by assigning a fill and stroke */
+    .dot {
+        stroke: #fff;
     }
     /* Style text and titles */
     span#mainTitle {
@@ -48,7 +52,7 @@
 </head>
 <body>
   <span id="mainTitle">Are We Flattening the Curve? A visualization of COVID-19 trajectories for hard-hit Western Countries.</span>
-  <div id="methodology" style="width:200px;">
+  <div id="methodology" style="width:240px;">
     <li><b>Daily New Case/Death Growth</b> is the most sensitive indicator of the trajectory of a pandemic. 
       The line on this chart reaching zero (and continuing below zero) is the first indication that the curve 
       is beginning to flatten. If this line is above zero, the curve is steepening. (i.e. the spread is not just worsening, 
@@ -57,8 +61,8 @@
   <div id="crosslink" style="width:200px;">
     <li><a href="./flatten_the_curve_state.html">Click Here</a> to view the data for each state.</li>
   </div>
-  <svg id = legend width="200" height="160">
-    <rect width="200" height="155" style="fill:none;stroke-width:3;stroke:steelblue" ></rect>
+  <svg id = legend width="240" height="220">
+    <rect width="240" height="205" style="fill:none;stroke-width:3;stroke:steelblue" ></rect>
     <text x=10 y=20 style="font-size: 18px; font-weight:bold; fill:steelblue;">Legend</text>
     
     <line x1="20" y1="40" x2="60" y2="40" style="stroke:steelblue;stroke-width:5" />
@@ -75,6 +79,12 @@
 
     <line x1="20" y1="140" x2="60" y2="140" style="stroke:red;stroke-width:5" />
     <text x=80 y=145 style="font-size: 14px;">France</text>
+
+    <polygon points="20,170 30,156 40,170" style="fill:steelblue;stroke:steelblue;stroke-width:1" />
+    <text x=80 y=170 style="font-size: 14px;">Country began lockdown</text>
+
+    <circle cx="30" cy="190" r="6" stroke="steelblue" stroke-width="3" fill="steelblue" />
+    <text x=80 y=195 style="font-size: 14px;">14 days into lockdown</text>
 
   </svg>
 </body>

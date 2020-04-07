@@ -5,12 +5,13 @@ var hEach   = 40;
 
 var margin = {top: 15, right: 15, bottom: 45, left: 50};
 
+//ToDo - Add in the dates that lockdown measures started and depict on graph
 var countries = [
-    {"name":"US", "color" : "steelblue"},
-    {"name":"France", "color" : "red"},
-    {"name":"Spain", "color" : "purple"},
-    {"name":"Italy", "color" : "rgb(255, 196, 0)"},
-    {"name":"United Kingdom", "color" : "green"}
+    {"name":"US", "color" : "steelblue", "lockdown":"2020-03-19"},
+    {"name":"France", "color" : "red", "lockdown":"2020-03-23"},
+    {"name":"Spain", "color" : "purple", "lockdown":"2020-03-14"},
+    {"name":"Italy", "color" : "rgb(255, 196, 0)", "lockdown":"2020-03-09"},
+    {"name":"United Kingdom", "color" : "green", "lockdown":"2020-03-23"}
 ]
 
 var chartTypes = [
@@ -25,6 +26,12 @@ var chartTypes = [
 // parse the date / time
 var parseTime = d3.timeParse("%Y-%m-%d");
 var tickForm = d3.timeParse("%m-%d");
+
+function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
 
 function LineChart () {
     d3.csv('../sql/SumByCountryDateAnalysis.csv', function (error, dataProto) {
@@ -108,6 +115,30 @@ function LineChart () {
                 .style("font-size", "12px") 
                 .style("text-decoration", "underline")  
                 .text(chartType.title);
+
+                console.log(parseTime(country.lockdown));
+                console.log(addDays(parseTime(country.lockdown),14));
+                // Append points
+                
+                svg.selectAll(".dot"+ country.name)
+                .data(dataFiltered.filter(function(d) {return +d.Last_Update == +parseTime(country.lockdown)}))
+                .enter().append("path") // Uses the enter().append() method
+                    .attr("class", "triangle") // Assign a class for styling
+                    .attr("d", d3.symbol().type(d3.symbolTriangle))
+                    .attr("transform", function(d) { return "translate(" +  x(d.Last_Update) + "," + y(d[chartType.name]) + ")"; })
+                    //.attr("cx", function(d, i) { return x(d.Last_Update); })
+                    //.attr("cy", function(d) { return y(d[chartType.name]); })
+                    .attr("fill", country.color)
+                    .attr("r", 8);
+                
+                svg.selectAll(".dot"+ country.name)
+                .data(dataFiltered.filter(function(d) {return +d.Last_Update == +addDays(parseTime(country.lockdown),14)}))
+                .enter().append("circle") // Uses the enter().append() method
+                    .attr("class", "dot") // Assign a class for styling
+                    .attr("cx", function(d, i) { return x(d.Last_Update); })
+                    .attr("cy", function(d) { return y(d[chartType.name]); })
+                    .attr("fill", country.color)
+                    .attr("r", 7);
             });
         });
     });
