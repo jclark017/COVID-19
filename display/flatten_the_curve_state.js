@@ -134,8 +134,6 @@ function LineChart () {
               .curve(d3.curveMonotoneX);
 
               /* Paint each Country line */
-
-
               svg.append("path")
               .data([dataFiltered]) 
               .attr("class", "line")  

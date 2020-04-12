@@ -81,6 +81,20 @@ function LineChart () {
             .y(function(d) { return y(d[chartType.name]);  })
             .curve(d3.curveMonotoneX);
 
+            var zeroline = d3.line()
+            .x(function(d) { return x(d.Last_Update); })
+            .y(function(d) { return y(0);  })
+
+            if (chartType.name == "ConfirmedSDSMA4" || chartType.name == "DeathsSDSMA4" ) {
+            svg.append("path")
+                .data([data]) 
+                .attr("class", "zeroline")  
+                .attr("id", "zeroline")
+                .style("stroke-dasharray", ("5"))
+                .attr("stroke","steelblue")
+                .attr("d", zeroline); 
+            };
+
             /* Paint each Country line */
             countries.forEach(function(country) {
                 var dataFiltered = data.filter(function(d){return d.Country_Region==country.name})
@@ -115,11 +129,8 @@ function LineChart () {
                 .style("font-size", "12px") 
                 .style("text-decoration", "underline")  
                 .text(chartType.title);
-
-                console.log(parseTime(country.lockdown));
-                console.log(addDays(parseTime(country.lockdown),14));
-                // Append points
                 
+                // Append points
                 svg.selectAll(".dot"+ country.name)
                 .data(dataFiltered.filter(function(d) {return +d.Last_Update == +parseTime(country.lockdown)}))
                 .enter().append("path") // Uses the enter().append() method

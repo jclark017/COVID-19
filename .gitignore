@@ -2,3 +2,4 @@
 vscode/node_modules/
 .vscode/
 node_modules/
+sqlite3.exe
