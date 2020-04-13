@@ -13,7 +13,7 @@ writer.pipe(fs.createWriteStream('C:/Users/clark/OneDrive/Documents/GitHub/COVID
 /* set up the output SQLLite database */
 let db = new sqlite3.Database('./output.db')
 
-db.run('DROP TABLe IF EXISTS output');
+db.run('DROP TABLe IF EXISTS output;');
 db.run('CREATE TABLE IF NOT EXISTS output(FIPS INTEGER,Admin2 TEXT,Province_State TEXT,Country_Region TEXT,Last_Update REAL,Lat REAL,Long_ REAL,Confirmed INTEGER,Deaths INTEGER,Recovered INTEGER,Active INTEGER,Combined_Key TEXT)');
 insertRow = db.prepare('INSERT INTO output(FIPS,Admin2,Province_State,Country_Region,Last_Update,Lat,Long_,Confirmed,Deaths,Recovered,Active,Combined_Key) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)');
 
