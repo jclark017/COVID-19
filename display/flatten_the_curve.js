@@ -72,7 +72,7 @@ function LineChart () {
             x.domain(d3.extent(data, function(d) { return d.Last_Update; })).nice();
 
             var y = d3.scaleLinear().range([cHeight, 0]);
-            ybasis = chartType.ybasis =="zero" ? 0 : -d3.max(data, function(d) {return d[chartType.name] })/2
+            ybasis = chartType.ybasis =="zero" ? 0 : d3.min([-d3.max(data, function(d) {return d[chartType.name] })/2,d3.min(data, function(d) {return d[chartType.name] })])
             y.domain([ybasis,d3.max(data, function(d) {return d[chartType.name] })]);
 
             

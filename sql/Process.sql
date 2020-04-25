@@ -22,10 +22,10 @@ DROP VIEW IF EXISTS SumByCountryDateAnalysis;
 CREATE VIEW SumByCountryDateAnalysis AS
 SELECT 
 	*,
-	sum(ConfirmedDailyIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update ROWS 7 PRECEDING)/7 - 
-	sum(ConfirmedPreviousIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update ROWS 7 PRECEDING)/7 ConfirmedSDSMA4,
-	sum(DeathsDailyIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update ROWS 7 PRECEDING)/7 - 
-	sum(DeathsPreviousIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update ROWS 7 PRECEDING)/7 DeathsSDSMA4
+	sum(ConfirmedDailyIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update ROWS 6 PRECEDING)/7 - 
+	sum(ConfirmedPreviousIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update ROWS 6 PRECEDING)/7 ConfirmedSDSMA4,
+	sum(DeathsDailyIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update ROWS 6 PRECEDING)/7 - 
+	sum(DeathsPreviousIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update ROWS 6 PRECEDING)/7 DeathsSDSMA4
 FROM
 	(
 		SELECT 	
@@ -66,10 +66,10 @@ DROP VIEW IF EXISTS SumByCountryStateDateAnalysis;
 CREATE VIEW SumByCountryStateDateAnalysis AS
 SELECT 
 	*,
-	sum(ConfirmedDailyIncrease) OVER(PARTITION BY Country_Region, Province_State ORDER BY Last_Update ROWS 7 PRECEDING)/7 - 
-	sum(ConfirmedPreviousIncrease) OVER(PARTITION BY Country_Region, Province_State ORDER BY Last_Update ROWS 7 PRECEDING)/7 ConfirmedSDSMA4,
-	sum(DeathsDailyIncrease) OVER(PARTITION BY Country_Region, Province_State ORDER BY Last_Update ROWS 7 PRECEDING)/7 - 
-	sum(DeathsPreviousIncrease) OVER(PARTITION BY Country_Region, Province_State ORDER BY Last_Update ROWS 7 PRECEDING)/7 DeathsSDSMA4
+	sum(ConfirmedDailyIncrease) OVER(PARTITION BY Country_Region, Province_State ORDER BY Last_Update ROWS 6 PRECEDING)/7 - 
+	sum(ConfirmedPreviousIncrease) OVER(PARTITION BY Country_Region, Province_State ORDER BY Last_Update ROWS 6 PRECEDING)/7 ConfirmedSDSMA4,
+	sum(DeathsDailyIncrease) OVER(PARTITION BY Country_Region, Province_State ORDER BY Last_Update ROWS 6 PRECEDING)/7 - 
+	sum(DeathsPreviousIncrease) OVER(PARTITION BY Country_Region, Province_State ORDER BY Last_Update ROWS 6 PRECEDING)/7 DeathsSDSMA4
 FROM
 	(
 		SELECT 	
