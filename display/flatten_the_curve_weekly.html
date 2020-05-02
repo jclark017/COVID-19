@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <title>Flatten the Curve - Weekly</title>
+    <meta property="og:title" content="Are we flattening the curve?" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jclark017.github.io/COVID-19/display/flatten_the_curve_weekly.html" />
+    <meta property="og:image" content="https://jclark017.github.io/COVID-19/display/by_country3.png" />
+    <meta property="og:image:secure_url" content="https://jclark017.github.io/COVID-19/display/by_country3.png" />
+    <meta property="og:image:width" content="1124" />
+    <meta property="og:image:height" content="566" />
+    <meta property="og:image:alt" content="A visualization of COVID-19 trajectories for hard-hit Western Countries" />
+    <meta property="og:description" content="A visualization of COVID-19 trajectories for hard-hit Western Countries" />
+    <meta property="fb:app_id" content="1809823809152851" />
+<style>
+    .line{
+        fill: none;
+        stroke-width: 2px;
+    }
+    .zeroline{
+        fill: none;
+        stroke-width: 1px;
+    }
+    #legend {
+        left:1350px;
+        top:60px;
+        position:absolute;
+    }
+    #methodology {
+        left:1350px;
+        top:700px;
+        position:absolute;
+    }
+    #crosslink {
+        left:1350px;
+        top:300px;
+        position:absolute;
+    }
+    /* Style the dots by assigning a fill and stroke */
+    .dot {
+        stroke: #fff;
+    }
+    /* Style text and titles */
+    span#mainTitle {
+    position:absolute;
+    top:5px;
+    left:5px;
+    padding: 5px;
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    color: white;
+    background: steelblue;
+    }
+</style>
+</head>
+<body>
+  <span id="mainTitle">Are We Flattening the Curve? A visualization of COVID-19 trajectories for hard-hit Western Countries.</span>
+  <div id="methodology" style="width:240px;">
+    <li><b>Daily New Case/Death Growth</b> is the most sensitive indicator of the trajectory of a pandemic. 
+      The line on this chart reaching zero (and continuing below zero) is the first indication that the curve 
+      is beginning to flatten. If this line is above zero, the curve is steepening. (i.e. the spread is not just worsening, 
+      it is worsening at an increasing rate.) <br/> A 7 day Simple Moving Average is applied for smoothing<br/> Data Source: JHU CSSE</li>
+  </div>
+  <div id="crosslink" style="width:200px;">
+    <li><a href="./flatten_the_curve_state.html">Click Here</a> to view the data for each state.</li>
+  </div>
+  <svg id = legend width="240" height="220">
+    <rect width="240" height="205" style="fill:none;stroke-width:3;stroke:steelblue" ></rect>
+    <text x=10 y=20 style="font-size: 18px; font-weight:bold; fill:steelblue;">Legend</text>
+    
+    <line x1="20" y1="40" x2="60" y2="40" style="stroke:steelblue;stroke-width:5" />
+    <text x=80 y=45 style="font-size: 14px;">United States</text>
+
+    <line x1="20" y1="65" x2="60" y2="65" style="stroke:green;stroke-width:5" />
+    <text x=80 y=70 style="font-size: 14px;">United Kingdom</text>
+
+    <line x1="20" y1="90" x2="60" y2="90" style="stroke:purple;stroke-width:5" />
+    <text x=80 y=95 style="font-size: 14px;">Spain</text>
+
+    <line x1="20" y1="115" x2="60" y2="115" style="stroke:rgb(255, 196, 0);stroke-width:5" />
+    <text x=80 y=120 style="font-size: 14px;">Italy</text>
+
+    <line x1="20" y1="140" x2="60" y2="140" style="stroke:red;stroke-width:5" />
+    <text x=80 y=145 style="font-size: 14px;">France</text>
+
+    <polygon points="20,170 30,156 40,170" style="fill:steelblue;stroke:steelblue;stroke-width:1" />
+    <text x=80 y=170 style="font-size: 14px;">Country began lockdown</text>
+
+    <circle cx="30" cy="190" r="6" stroke="steelblue" stroke-width="3" fill="steelblue" />
+    <text x=80 y=195 style="font-size: 14px;">14 days into lockdown</text>
+
+  </svg>
+</body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src="https://d3js.org/d3-array.v2.min.js"></script>
+<script src="./flatten_the_curve_weekly.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script>
+  LineChart();
+</script>

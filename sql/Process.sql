@@ -88,3 +88,47 @@ FROM
 					SumByCountryStateDate
 			) t
 	) t	
+	
+	
+-- Summarize by country, Week
+DROP VIEW IF EXISTS SumByCountryWeek;
+CREATE VIEW SumByCountryWeek AS
+SELECT 	
+	o.Country_Region 
+	,min(o.Last_Update) Last_Update 
+	,max(o.Confirmed) Confirmed
+	,max(o.Deaths) Deaths
+FROM 
+	"output" o
+WHERE
+	strftime('%W', o.Last_Update) < (SELECT max(strftime('%W', o.Last_Update)) Last_Update FROM "output" o)
+GROUP BY
+	o.Country_Region 
+	,strftime('%Y', o.Last_Update)
+	,strftime('%W', o.Last_Update) 
+	
+-- 	Summarize by country, date, with Analysis
+DROP VIEW IF EXISTS SumByCountryWeekAnalysis;
+CREATE VIEW SumByCountryWeekAnalysis AS
+SELECT 
+	*,
+	ConfirmedDailyIncrease-ConfirmedPreviousIncrease ConfirmedSDSMA4,
+	DeathsDailyIncrease-DeathsPreviousIncrease DeathsSDSMA4
+FROM
+	(
+		SELECT 	
+			*,
+			lag(ConfirmedDailyIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update) as ConfirmedPreviousIncrease,
+			lag(DeathsDailyIncrease) OVER(PARTITION BY Country_Region ORDER BY Last_Update) as DeathsPreviousIncrease
+		FROM 
+			(
+				SELECT 
+					*,
+					lag(Confirmed) OVER (PARTITION BY Country_Region ORDER BY Last_Update) ConfirmedPrevious,
+					Confirmed - lag(Confirmed) OVER (PARTITION BY Country_Region ORDER BY Last_Update) as ConfirmedDailyIncrease,
+					lag(Deaths) OVER (PARTITION BY Country_Region ORDER BY Last_Update) DeathsPrevious,
+					Deaths - lag(Deaths) OVER (PARTITION BY Country_Region ORDER BY Last_Update) as DeathsDailyIncrease
+				FROM 
+					SumByCountryWeek
+			) t
+	) t		
