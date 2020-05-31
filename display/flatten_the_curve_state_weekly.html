@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <title>Flatten the Curve</title>
+  <meta property="og:title" content="Are we flattening the curve? (by state)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jclark017.github.io/COVID-19/display/flatten_the_curve_state.html" />
+  <meta property="og:image" content="https://jclark017.github.io/COVID-19/display/by_state.png" />
+  <meta property="og:image:secure_url" content="https://jclark017.github.io/COVID-19/display/by_state.png" />
+  <meta property="og:image:width" content="1124" />
+  <meta property="og:image:height" content="566" />
+  <meta property="og:image:alt" content="A state-by-state analysis of COVID-19 trajectory" />
+  <meta property="og:description" content="A state-by-state analysis of COVID-19 trajectory" />
+  <meta property="fb:app_id" content="1809823809152851" />
+<style>
+    .line{
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 2px;
+    }
+    #legend {
+        left:1350px;
+        top:60px;
+        position:absolute;
+    }
+    /* Style text and titles */
+    span#mainTitle {
+    position:absolute;
+    top:5px;
+    left:5px;
+    padding: 5px;
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    color: white;
+    background: steelblue;
+    }
+
+     /* Style the header */
+    .header {
+      padding: 10px 16px;
+      background: rgb(54, 54, 54);
+      color: #a2a1a5;
+      height: 50px;
+    }
+
+    /* The sticky class is added to the header with JS when it reaches its scroll position */
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%
+    }
+
+    /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+    .sticky + .content {
+      padding-top: 102px;
+    } 
+</style>
+</head>
+<body>
+  <span id="mainTitle">Are We Flattening the Curve? A state-by-state analysis of COVID-19 trajectory</span>
+  <div id="methodology">
+  </div>
+  <div class="header" id="myHeader">
+    <table style="position:relative;left:60px;">
+      <tr>
+        <td width="170"><h3>Total Cases</h3></td>
+        <td width="200"><h3>Daily New Cases</h3></td>
+        <td width="200"><h3>New Case Growth</h3></td>
+        <td width="210"><h3>Total Deaths</h3></td>
+        <td width="210"><h3>Daily New Deaths</h3></td>
+        <td width="170"><h3>New Death Growth</h3></td>
+      </tr>
+    </table>
+  </div> 
+</body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src="https://d3js.org/d3-array.v2.min.js"></script>
+<script src="./flatten_the_curve_state_weekly.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script>
+  LineChart();
+</script>
+<script>
+  // When the user scrolls the page, execute myFunction
+window.onscroll = function() {myFunction()};
+
+// Get the header
+var header = document.getElementById("myHeader");
+
+// Get the offset position of the navbar
+var sticky = header.offsetTop;
+
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+} 
+</script>
