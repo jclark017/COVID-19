@@ -158,7 +158,7 @@ DROP VIEW IF EXISTS SumByCountryStateWeekAnalysis;
 CREATE VIEW SumByCountryStateWeekAnalysis AS
 SELECT 
 	*,
-	ConfirmedDailyIncrease - ConfirmedPreviousIncrease7 ConfirmedSDSMA4,
+	ConfirmedDailyIncrease - ConfirmedPreviousIncrease ConfirmedSDSMA4,
 	DeathsDailyIncrease - DeathsPreviousIncrease DeathsSDSMA4
 FROM
 	(
@@ -173,7 +173,9 @@ FROM
 					lag(Confirmed) OVER (PARTITION BY Country_Region, Province_State ORDER BY Last_Update) ConfirmedPrevious,
 					Confirmed - lag(Confirmed) OVER (PARTITION BY Country_Region, Province_State ORDER BY Last_Update) as ConfirmedDailyIncrease,
 					lag(Deaths) OVER (PARTITION BY Country_Region, Province_State ORDER BY Last_Update) DeathsPrevious,
-					Deaths - lag(Deaths) OVER (PARTITION BY Country_Region, Province_State ORDER BY Last_Update) as DeathsDailyIncrease
+					Deaths - lag(Deaths) OVER (PARTITION BY Country_Region, Province_State ORDER BY Last_Update) as DeathsDailyIncrease,
+					max(Confirmed) OVER (PARTITION BY Country_Region, Province_State) ConfirmedTotal,
+					max(Deaths) OVER (PARTITION BY Country_Region, Province_State) DeathsTotal
 				FROM 
 					SumByCountryStateWeek
 			) t
