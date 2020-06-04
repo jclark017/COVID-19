@@ -181,3 +181,4 @@ FROM
 			) t
 	) t	
 	
+SELECT * FROM SumByCountryWeekAnalysis WHERE Country_Region in ('US', 'Italy', 'Spain', 'UK', 'United Kingdom', 'France');
