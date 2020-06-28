@@ -1,5 +1,5 @@
-const csvFilePath= 'C:/Users/clark/OneDrive/Documents/GitHub/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports/01-25-2020.csv'
-const csvFileFolder='C:/Users/clark/OneDrive/Documents/GitHub/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports/'
+const csvFilePath= 'C:/Users/clark/source/repos/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports/01-25-2020.csv'
+const csvFileFolder='C:/Users/clark/source/repos/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports/'
 const csv=require('csvtojson')
 
 const sqlite3 = require('sqlite3');
@@ -8,7 +8,7 @@ const fs = require('fs');
 
 const csvWriter  = require('csv-write-stream')
 var writer = csvWriter({headers: ['FIPS','Admin2','Province_State','Country_Region','Last_Update','Lat','Long_','Confirmed','Deaths','Recovered','Active','Combined_Key']})
-writer.pipe(fs.createWriteStream('C:/Users/clark/OneDrive/Documents/GitHub/COVID-19/vscode/output.csv'))
+writer.pipe(fs.createWriteStream('C:/Users/clark/source/repos/COVID-19/vscode/output.csv'))
 
 /* set up the output SQLLite database */
 let db = new sqlite3.Database('./output.db')
