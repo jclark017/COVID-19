@@ -1,4 +1,4 @@
-git fetch
+git fetch --all
 git merge remotes/upstream/master
 cd vscode
 node convert.js
