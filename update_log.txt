@@ -85,3 +85,7 @@ C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outp
 C:\Users\clark\source\repos\COVID-19\sql>cd .. 
 
 C:\Users\clark\source\repos\COVID-19>git commit -am "Daily Update" 
+[master 9e55fb1d] Daily Update
+ 3 files changed, 295094 insertions(+), 295075 deletions(-)
+
+C:\Users\clark\source\repos\COVID-19>git push 
