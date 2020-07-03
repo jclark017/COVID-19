@@ -106,3 +106,15 @@ C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql
 C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
 
 C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
+[master bae64532] Daily Update
+ 3 files changed, 321757 insertions(+), 321740 deletions(-)
+
+C:\Users\clark\source\repos\COVID-19\sql>git push 
+
+C:\Users\clark\source\repos\COVID-19\sql>cd ../PowerBI 
+
+C:\Users\clark\source\repos\COVID-19\PowerBI>del daily.csv 
+
+C:\Users\clark\source\repos\COVID-19\PowerBI>wget https://covidtracking.com/api/v1/states/daily.csv 
+
+C:\Users\clark\source\repos\COVID-19\PowerBI>cd .. 
