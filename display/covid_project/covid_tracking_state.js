@@ -147,7 +147,7 @@ function LineChartState() {
           .data([dataFilteredNan]) 
           .attr("class", "line")  
           .attr("id", "line")
-          .attr("d", valueline.curve(curveNMoveAge.N(1))); 
+          .attr("d", valueline.curve(curveNMoveAge.N(7))); 
 
           // Add the X Axis
           svg.append("g")
