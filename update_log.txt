@@ -203,3 +203,45 @@ C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql
 C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
 
 C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
+[master 31a40f1f] Daily Update
+ 4 files changed, 353954 insertions(+), 353937 deletions(-)
+
+C:\Users\clark\source\repos\COVID-19\sql>git push 
+
+C:\Users\clark\source\repos\COVID-19\sql>cd ../PowerBI 
+
+C:\Users\clark\source\repos\COVID-19\PowerBI>del daily.csv 
+
+C:\Users\clark\source\repos\COVID-19\PowerBI>wget https://covidtracking.com/api/v1/states/daily.csv 
+
+C:\Users\clark\source\repos\COVID-19\PowerBI>cd .. 
+
+C:\Users\clark\source\repos\COVID-19>git fetch --all 
+Fetching origin
+Fetching upstream
+
+C:\Users\clark\source\repos\COVID-19>git merge remotes/upstream/master 
+Auto-merging README.md
+Merge made by the 'recursive' strategy.
+ README.md                                          |    2 +-
+ csse_covid_19_data/README.md                       |    1 +
+ .../csse_covid_19_daily_reports/07-07-2020.csv     | 3804 ++++++++++++
+ .../csse_covid_19_daily_reports_us/07-07-2020.csv  |   59 +
+ .../time_series_covid19_confirmed_US.csv           | 6524 ++++++++++----------
+ .../time_series_covid19_confirmed_global.csv       |  534 +-
+ .../time_series_covid19_deaths_US.csv              | 6524 ++++++++++----------
+ .../time_series_covid19_deaths_global.csv          |  534 +-
+ .../time_series_covid19_recovered_global.csv       |  508 +-
+ 9 files changed, 11177 insertions(+), 7313 deletions(-)
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports/07-07-2020.csv
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports_us/07-07-2020.csv
+
+C:\Users\clark\source\repos\COVID-19>cd vscode 
+
+C:\Users\clark\source\repos\COVID-19\vscode>node convert.js 
+
+C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql 
+
+C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
+
+C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
