@@ -279,3 +279,26 @@ Merge made by the 'recursive' strategy.
 C:\Users\clark\source\repos\COVID-19>cd vscode 
 
 C:\Users\clark\source\repos\COVID-19\vscode>node convert.js 
+
+C:\Users\clark\source\repos\COVID-19>git fetch --all 
+Fetching origin
+Fetching upstream
+
+C:\Users\clark\source\repos\COVID-19>git merge remotes/upstream/master 
+Auto-merging README.md
+Merge made by the 'recursive' strategy.
+ README.md                                          |    4 +-
+ .../csse_covid_19_daily_reports/07-09-2020.csv     | 3807 ++++++++++++
+ .../csse_covid_19_daily_reports_us/07-09-2020.csv  |   59 +
+ .../time_series_covid19_confirmed_US.csv           | 6524 ++++++++++----------
+ .../time_series_covid19_confirmed_global.csv       |  534 +-
+ .../time_series_covid19_deaths_US.csv              | 6524 ++++++++++----------
+ .../time_series_covid19_deaths_global.csv          |  534 +-
+ .../time_series_covid19_recovered_global.csv       |  508 +-
+ 8 files changed, 11181 insertions(+), 7313 deletions(-)
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports/07-09-2020.csv
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports_us/07-09-2020.csv
+
+C:\Users\clark\source\repos\COVID-19>cd vscode 
+
+C:\Users\clark\source\repos\COVID-19\vscode>node convert.js 
