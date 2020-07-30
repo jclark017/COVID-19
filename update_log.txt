@@ -1088,3 +1088,31 @@ Merge made by the 'recursive' strategy.
 C:\Users\clark\source\repos\COVID-19>cd vscode 
 
 C:\Users\clark\source\repos\COVID-19\vscode>node convert.js 
+
+C:\Users\clark\source\repos\COVID-19>git fetch --all 
+Fetching origin
+Fetching upstream
+
+C:\Users\clark\source\repos\COVID-19>git merge remotes/upstream/master 
+Auto-merging README.md
+Merge made by the 'recursive' strategy.
+ README.md                                          |    2 +
+ csse_covid_19_data/README.md                       |   23 +-
+ .../csse_covid_19_daily_reports/07-03-2020.csv     |   56 +-
+ .../csse_covid_19_daily_reports/07-28-2020.csv     |  300 +-
+ .../csse_covid_19_daily_reports/07-29-2020.csv     | 3936 ++++++++++++
+ .../csse_covid_19_daily_reports_us/07-28-2020.csv  |    4 +-
+ .../csse_covid_19_daily_reports_us/07-29-2020.csv  |   59 +
+ .../csse_covid_19_time_series/Errata.csv           |    7 +
+ .../time_series_covid19_confirmed_US.csv           | 6682 ++++++++++----------
+ .../time_series_covid19_confirmed_global.csv       |  534 +-
+ .../time_series_covid19_deaths_US.csv              | 6682 ++++++++++----------
+ .../time_series_covid19_deaths_global.csv          |  534 +-
+ .../time_series_covid19_recovered_global.csv       |  508 +-
+ 13 files changed, 11667 insertions(+), 7660 deletions(-)
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports/07-29-2020.csv
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports_us/07-29-2020.csv
+
+C:\Users\clark\source\repos\COVID-19>cd vscode 
+
+C:\Users\clark\source\repos\COVID-19\vscode>node convert.js 
