@@ -3729,3 +3729,44 @@ C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql
 C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
 
 C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
+[master 3cc9134e] Daily Update
+ 7 files changed, 748187 insertions(+), 744082 deletions(-)
+
+C:\Users\clark\source\repos\COVID-19\sql>git push 
+
+C:\Users\clark\source\repos\COVID-19\sql>cd ../PowerBI 
+
+C:\Users\clark\source\repos\COVID-19\PowerBI>del daily.csv 
+
+C:\Users\clark\source\repos\COVID-19\PowerBI>wget https://covidtracking.com/api/v1/states/daily.csv 
+
+C:\Users\clark\source\repos\COVID-19\PowerBI>cd .. 
+
+C:\Users\clark\source\repos\COVID-19>git fetch --all 
+Fetching origin
+Fetching upstream
+
+C:\Users\clark\source\repos\COVID-19>git merge remotes/upstream/master 
+Merge made by the 'recursive' strategy.
+ .../csse_covid_19_daily_reports/10-08-2020.csv     | 7912 +++++++++----------
+ .../csse_covid_19_daily_reports/10-09-2020.csv     | 7912 +++++++++----------
+ .../csse_covid_19_daily_reports/10-10-2020.csv     |    2 +-
+ .../csse_covid_19_daily_reports/10-11-2020.csv     | 7912 +++++++++----------
+ .../csse_covid_19_daily_reports/10-12-2020.csv     | 7914 ++++++++++----------
+ .../csse_covid_19_daily_reports/10-13-2020.csv     | 7914 ++++++++++----------
+ .../csse_covid_19_daily_reports/10-14-2020.csv     | 7914 ++++++++++----------
+ .../csse_covid_19_daily_reports/10-15-2020.csv     | 3957 ++++++++++
+ .../csse_covid_19_daily_reports_us/10-15-2020.csv  |   59 +
+ .../csse_covid_19_time_series/Errata.csv           |    3 +
+ .../time_series_covid19_confirmed_US.csv           | 6682 ++++++++---------
+ .../time_series_covid19_confirmed_global.csv       |  536 +-
+ .../time_series_covid19_deaths_US.csv              | 6682 ++++++++---------
+ .../time_series_covid19_deaths_global.csv          |  536 +-
+ .../time_series_covid19_recovered_global.csv       |  510 +-
+ 15 files changed, 35232 insertions(+), 31213 deletions(-)
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports/10-15-2020.csv
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports_us/10-15-2020.csv
+
+C:\Users\clark\source\repos\COVID-19>cd vscode 
+
+C:\Users\clark\source\repos\COVID-19\vscode>node convert.js 
