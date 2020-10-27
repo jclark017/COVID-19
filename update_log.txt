@@ -3991,3 +3991,14 @@ C:\Users\clark\source\repos\COVID-19\PowerBI>del daily.csv
 C:\Users\clark\source\repos\COVID-19\PowerBI>wget https://covidtracking.com/api/v1/states/daily.csv 
 
 C:\Users\clark\source\repos\COVID-19\PowerBI>cd .. 
+
+C:\Users\clark\source\repos\COVID-19>git fetch --all 
+Fetching origin
+Fetching upstream
+
+C:\Users\clark\source\repos\COVID-19>git merge remotes/upstream/master 
+Already up to date.
+
+C:\Users\clark\source\repos\COVID-19>cd vscode 
+
+C:\Users\clark\source\repos\COVID-19\vscode>node convert.js 
