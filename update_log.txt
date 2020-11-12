@@ -4509,3 +4509,16 @@ C:\Users\clark\source\repos\COVID-19\PowerBI>del daily.csv
 C:\Users\clark\source\repos\COVID-19\PowerBI>wget https://covidtracking.com/api/v1/states/daily.csv 
 
 C:\Users\clark\source\repos\COVID-19\PowerBI>cd .. 
+
+C:\Users\clark\source\repos\COVID-19>git fetch --all 
+Fetching origin
+Fetching upstream
+
+C:\Users\clark\source\repos\COVID-19>git merge remotes/upstream/master 
+Merge made by the 'recursive' strategy.
+ csse_covid_19_data/UID_ISO_FIPS_LookUp_Table.csv | 1 +
+ 1 file changed, 1 insertion(+)
+
+C:\Users\clark\source\repos\COVID-19>cd vscode 
+
+C:\Users\clark\source\repos\COVID-19\vscode>node convert.js 
