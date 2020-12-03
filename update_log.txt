@@ -6043,3 +6043,14 @@ Merge made by the 'recursive' strategy.
 C:\Users\clark\source\repos\COVID-19>cd vscode 
 
 C:\Users\clark\source\repos\COVID-19\vscode>node convert.js 
+
+C:\Users\clark\source\repos\COVID-19>git fetch --all 
+Fetching origin
+Fetching upstream
+
+C:\Users\clark\source\repos\COVID-19>git merge remotes/upstream/master 
+Already up to date.
+
+C:\Users\clark\source\repos\COVID-19>cd vscode 
+
+C:\Users\clark\source\repos\COVID-19\vscode>node convert.js 
