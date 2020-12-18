@@ -4,7 +4,7 @@ vscode/node_modules/
 node_modules/
 sqlite3.exe
 pysci/scrape/scrapedCensus.csv
-#daily.csv
-#vscode/output.csv
-#vscode/output.db
-#output.db
+daily.csv
+vscode/output.csv
+vscode/output.db
+output.db
