@@ -11450,3 +11450,5 @@ C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update"
 C:\Users\clark\source\repos\COVID-19\sql>git push 
 
 C:\Users\clark\source\repos\COVID-19\sql>cd .. 
+
+C:\Users\clark\source\repos\COVID-19>cd ../PowerBI 
