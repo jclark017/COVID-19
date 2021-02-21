@@ -15086,3 +15086,63 @@ C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql
 C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
 
 C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
+[master 15c119985] Daily Update
+ 6 files changed, 743 insertions(+), 314 deletions(-)
+
+C:\Users\clark\source\repos\COVID-19\sql>git push 
+
+C:\Users\clark\source\repos\COVID-19\sql>cd .. 
+
+C:\Users\clark\source\repos\COVID-19>cd ../PowerBI 
+
+C:\Users\clark\source\repos\COVID-19>del daily.csv 
+
+C:\Users\clark\source\repos\COVID-19>wget https://covidtracking.com/api/v1/states/daily.csv 
+
+C:\Users\clark\source\repos\COVID-19>git fetch --all 
+Fetching origin
+Fetching upstream
+
+C:\Users\clark\source\repos\COVID-19>git merge remotes/upstream/master 
+Merge made by the 'recursive' strategy.
+ .../csse_covid_19_daily_reports/02-20-2021.csv     | 3981 ++++++++++++
+ .../csse_covid_19_daily_reports_us/02-20-2021.csv  |   59 +
+ .../time_series_covid19_confirmed_US.csv           | 6682 ++++++++++----------
+ .../time_series_covid19_confirmed_global.csv       |  548 +-
+ .../time_series_covid19_deaths_US.csv              | 6682 ++++++++++----------
+ .../time_series_covid19_deaths_global.csv          |  548 +-
+ .../time_series_covid19_recovered_global.csv       |  518 +-
+ 7 files changed, 11529 insertions(+), 7489 deletions(-)
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports/02-20-2021.csv
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports_us/02-20-2021.csv
+
+C:\Users\clark\source\repos\COVID-19>cd vscode 
+
+C:\Users\clark\source\repos\COVID-19\vscode>REM node convert.js 
+
+C:\Users\clark\source\repos\COVID-19\vscode>python convert.py 
+5
+10
+15
+20
+25
+30
+35
+40
+45
+51
+56
+61
+66
+71
+76
+81
+86
+91
+96
+
+C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql 
+
+C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
+
+C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
