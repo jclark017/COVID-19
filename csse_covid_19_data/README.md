@@ -193,6 +193,8 @@ Date: Location | Change | Files affected | Reason/Other notes | Source
 * February 22, 2021 | Israel | Adjustment of data for 1/25 and 1/26 to match media reports due to source issue | time_series_confirmed_global.csv and 1/25/2021 and 1/26/2021 daily reports | [Source 1](https://www.israelhayom.com/2021/01/25/health-ministry-180-people-infected-by-single-passenger-returning-from-dubai/), [Source 2](https://www.israelhayom.com/2021/01/26/health-minister-relentless-covid-morbidity-requires-extending-lockdown/)
 * March 3, 2021 | Ohio, US | To match Ohio’s new reporting standards, the Ohio death time series is being overwritten with date of death data, and the entire time series will be updated with each time Ohio updates their death data. This is expected to occur approximately twice per week. | [Data Source](https://coronavirus.ohio.gov/static/dashboards/COVIDDeathData_CountyOfResidence.csv) | This correction nullifies the Ohio correction on February 16
 * March 3, 2021 | Iowa, US | Fix case time series to replace “total positive tests” values with “positive tests by individual”. Stale county level data on February 20 is due to lack of data access on that day | All case time series and daily reports | [Source](https://coronavirus.iowa.gov/)
+* March 6, 2021 | Ohio, US | To match Ohio’s new reporting standards, the Ohio death time series is being overwritten with date of death data, and the entire time series will be updated with each time Ohio updates their death data. This is expected to occur approximately twice per week. | [Data Source](https://coronavirus.ohio.gov/static/dashboards/COVIDDeathData_CountyOfResidence.csv) | This correction nullifies the Ohio correction on February 16
+* March 7, 2021 | Iowa, US | Adjust time series to represent more standardized sampling times for Iowa data | All case time series and daily reports | [Source](https://coronavirus.iowa.gov/)
 
 
 ## Retrospective reporting of (probable) cases and deaths
@@ -323,6 +325,7 @@ United States
 * Rhode Island: Not updating case, death, or recovered data on the weekends. Releasing county level cases and deaths once per week.
 * Washington: Did not update October 10-12 due to data entry issue. Back distribution is not available. As of December 20, no longer providing updates on Sundays.
 * Wyoming: Not updating on Saturdays.
+* North Carolina: Not updating on Sundays.
 
 International
 * Sweden: Not updating case, death, or recovered data Saturday-Monday. Updates expected Tuesdays through Fridays.
