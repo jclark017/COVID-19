@@ -23070,3 +23070,66 @@ C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql
 C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
 
 C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
+[master 9d9fcfee9] Daily Update
+ 5 files changed, 189 insertions(+), 62 deletions(-)
+
+C:\Users\clark\source\repos\COVID-19\sql>git push 
+
+C:\Users\clark\source\repos\COVID-19\sql>cd .. 
+
+C:\Users\clark\source\repos\COVID-19>cd ../PowerBI 
+
+C:\Users\clark\source\repos\COVID-19>del daily.csv 
+
+C:\Users\clark\source\repos\COVID-19>wget https://covidtracking.com/api/v1/states/daily.csv 
+
+C:\Users\clark\source\repos\COVID-19>git fetch --all 
+Fetching origin
+Fetching upstream
+
+C:\Users\clark\source\repos\COVID-19>git merge remotes/upstream/master 
+Merge made by the 'recursive' strategy.
+ csse_covid_19_data/README.md                       |    1 +
+ .../csse_covid_19_daily_reports/03-27-2021.csv     | 3982 ++++++++++++
+ .../csse_covid_19_daily_reports_us/03-27-2021.csv  |   59 +
+ .../time_series_covid19_confirmed_US.csv           | 6682 ++++++++++----------
+ .../time_series_covid19_confirmed_global.csv       |  550 +-
+ .../time_series_covid19_deaths_US.csv              | 6682 ++++++++++----------
+ .../time_series_covid19_deaths_global.csv          |  550 +-
+ .../time_series_covid19_recovered_global.csv       |  520 +-
+ 8 files changed, 11534 insertions(+), 7492 deletions(-)
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports/03-27-2021.csv
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports_us/03-27-2021.csv
+
+C:\Users\clark\source\repos\COVID-19>cd vscode 
+
+C:\Users\clark\source\repos\COVID-19\vscode>REM node convert.js 
+
+C:\Users\clark\source\repos\COVID-19\vscode>python convert.py 
+5
+9
+14
+19
+23
+28
+32
+37
+42
+46
+51
+56
+60
+65
+70
+74
+79
+84
+88
+93
+97
+
+C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql 
+
+C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
+
+C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
