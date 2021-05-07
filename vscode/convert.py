@@ -15,7 +15,7 @@ c = conn.cursor()
 c.execute('DROP TABLE IF EXISTS output;')
 c.execute('CREATE TABLE IF NOT EXISTS output(FIPS INTEGER,Admin2 TEXT,Province_State TEXT,Country_Region TEXT,Last_Update REAL,Lat REAL,Long_ REAL,Confirmed INTEGER,Deaths INTEGER,Recovered INTEGER,Active INTEGER,Combined_Key TEXT, Incident_Rate REAL, Case_Fatality_Ratio REAL)')
 conn.commit()
-
+                              
 first_flag = 1
 
 def get_julian_datetime(date):
