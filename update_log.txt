@@ -48628,3 +48628,365 @@ C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql
 C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
 
 C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
+[master 80801c8ee] Daily Update
+ 5 files changed, 192 insertions(+), 62 deletions(-)
+
+C:\Users\clark\source\repos\COVID-19\sql>git push 
+
+C:\Users\clark\source\repos\COVID-19\sql>cd .. 
+
+C:\Users\clark\source\repos\COVID-19>cd ../PowerBI 
+
+C:\Users\clark\source\repos\COVID-19>del daily.csv 
+
+C:\Users\clark\source\repos\COVID-19>wget https://covidtracking.com/api/v1/states/daily.csv 
+
+C:\Users\clark\source\repos\COVID-19>git fetch --all 
+Fetching origin
+Fetching upstream
+
+C:\Users\clark\source\repos\COVID-19>git merge remotes/upstream/master 
+Auto-merging README.md
+Merge made by the 'recursive' strategy.
+ README.md                                          |    3 +-
+ csse_covid_19_data/README.md                       |    1 +
+ .../csse_covid_19_daily_reports/02-04-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-05-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-06-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-07-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-08-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-09-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-10-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-11-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-12-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-13-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-14-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-15-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-16-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-17-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-18-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-19-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-20-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-21-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-22-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-23-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-24-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/02-25-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/02-26-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/02-27-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/02-28-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-01-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-02-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-03-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-04-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-05-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-06-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-07-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-08-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-09-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-10-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-11-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-12-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-13-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-14-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-15-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-16-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-17-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-18-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-19-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-20-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-21-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-22-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-23-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-24-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/03-25-2021.csv     |    6 +-
+ .../csse_covid_19_daily_reports/03-26-2021.csv     |    6 +-
+ .../csse_covid_19_daily_reports/03-27-2021.csv     |    6 +-
+ .../csse_covid_19_daily_reports/03-28-2021.csv     |    6 +-
+ .../csse_covid_19_daily_reports/03-29-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/03-30-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/03-31-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-01-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-02-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-03-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-04-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-05-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-06-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-07-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-08-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-09-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-10-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-11-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-12-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-13-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-14-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-15-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-16-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-17-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-18-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-19-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-20-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-21-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-22-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-23-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-24-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-25-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-26-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-27-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-28-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-29-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/04-30-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-01-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-02-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-03-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-04-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-05-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-06-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-07-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-08-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-09-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-10-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-11-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-12-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-13-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-14-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-15-2021.csv     |    8 +-
+ .../csse_covid_19_daily_reports/05-16-2021.csv     |   10 +-
+ .../csse_covid_19_daily_reports/05-17-2021.csv     |   10 +-
+ .../csse_covid_19_daily_reports/05-18-2021.csv     |   10 +-
+ .../csse_covid_19_daily_reports/05-19-2021.csv     |   10 +-
+ .../csse_covid_19_daily_reports/05-20-2021.csv     |   10 +-
+ .../csse_covid_19_daily_reports/05-21-2021.csv     |   10 +-
+ .../csse_covid_19_daily_reports/05-22-2021.csv     |   10 +-
+ .../csse_covid_19_daily_reports/05-23-2021.csv     |   10 +-
+ .../csse_covid_19_daily_reports/05-24-2021.csv     |   10 +-
+ .../csse_covid_19_daily_reports/05-25-2021.csv     |   10 +-
+ .../csse_covid_19_daily_reports/05-26-2021.csv     |   10 +-
+ .../csse_covid_19_daily_reports/05-27-2021.csv     |   10 +-
+ .../csse_covid_19_daily_reports/05-28-2021.csv     |   12 +-
+ .../csse_covid_19_daily_reports/05-29-2021.csv     |   12 +-
+ .../csse_covid_19_daily_reports/05-30-2021.csv     |   12 +-
+ .../csse_covid_19_daily_reports/05-31-2021.csv     |   14 +-
+ .../csse_covid_19_daily_reports/06-01-2021.csv     |   16 +-
+ .../csse_covid_19_daily_reports/06-02-2021.csv     |   16 +-
+ .../csse_covid_19_daily_reports/06-03-2021.csv     |   20 +-
+ .../csse_covid_19_daily_reports/06-04-2021.csv     |   24 +-
+ .../csse_covid_19_daily_reports/06-05-2021.csv     |   24 +-
+ .../csse_covid_19_daily_reports/06-06-2021.csv     |   24 +-
+ .../csse_covid_19_daily_reports/06-07-2021.csv     |   24 +-
+ .../csse_covid_19_daily_reports/06-08-2021.csv     |   28 +-
+ .../csse_covid_19_daily_reports/06-09-2021.csv     |   28 +-
+ .../csse_covid_19_daily_reports/06-10-2021.csv     |   30 +-
+ .../csse_covid_19_daily_reports/06-11-2021.csv     |   32 +-
+ .../csse_covid_19_daily_reports/06-12-2021.csv     |   34 +-
+ .../csse_covid_19_daily_reports/06-13-2021.csv     |   34 +-
+ .../csse_covid_19_daily_reports/06-14-2021.csv     |   34 +-
+ .../csse_covid_19_daily_reports/06-15-2021.csv     |   34 +-
+ .../csse_covid_19_daily_reports/06-16-2021.csv     |   34 +-
+ .../csse_covid_19_daily_reports/06-17-2021.csv     |   36 +-
+ .../csse_covid_19_daily_reports/06-18-2021.csv     |   36 +-
+ .../csse_covid_19_daily_reports/06-19-2021.csv     |   40 +-
+ .../csse_covid_19_daily_reports/06-20-2021.csv     |   40 +-
+ .../csse_covid_19_daily_reports/06-21-2021.csv     |   40 +-
+ .../csse_covid_19_daily_reports/06-22-2021.csv     |   40 +-
+ .../csse_covid_19_daily_reports/06-23-2021.csv     |   40 +-
+ .../csse_covid_19_daily_reports/06-24-2021.csv     |   40 +-
+ .../csse_covid_19_daily_reports/06-25-2021.csv     |   40 +-
+ .../csse_covid_19_daily_reports/06-26-2021.csv     |   40 +-
+ .../csse_covid_19_daily_reports/06-27-2021.csv     |   40 +-
+ .../csse_covid_19_daily_reports/06-28-2021.csv     |   40 +-
+ .../csse_covid_19_daily_reports/06-29-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/06-30-2021.csv     | 3988 ++++++++++++
+ .../csse_covid_19_daily_reports_us/02-04-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-05-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-06-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-07-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-08-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-09-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-10-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-11-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-12-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-13-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-14-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-15-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-16-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-17-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-18-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-19-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-20-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-21-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-22-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-23-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-24-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-25-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-26-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-27-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/02-28-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-01-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-02-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-03-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-04-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-05-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-06-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-07-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-08-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-09-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-10-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-11-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-12-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-13-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-14-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-15-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-16-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-17-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-18-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-19-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-20-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-21-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-22-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-23-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-24-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-25-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-26-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-27-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-28-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-29-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-30-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/03-31-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-01-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-02-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-03-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-04-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-05-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-06-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-07-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-08-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-09-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-10-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-11-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-12-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-13-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-14-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-15-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-16-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-17-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-18-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-19-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-20-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-21-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-22-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-23-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-24-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-25-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-26-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-27-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-28-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-29-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/04-30-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-01-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-02-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-03-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-04-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-05-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-06-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-07-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-08-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-09-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-10-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-11-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-12-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-13-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-14-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-15-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-16-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-17-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-18-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-19-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-20-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-21-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-22-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-23-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-24-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-25-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-26-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-27-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-28-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-29-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-30-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/05-31-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-01-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-02-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-03-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-04-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-05-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-06-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-07-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-08-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-09-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-10-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-11-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-12-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-13-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-14-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-15-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-16-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-17-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-18-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-19-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-20-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-21-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-22-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-23-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-24-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-25-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-26-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-27-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-28-2021.csv  |    2 +-
+ .../csse_covid_19_daily_reports_us/06-30-2021.csv  |   59 +
+ .../csse_covid_19_time_series/Errata.csv           |    2 +
+ .../time_series_covid19_confirmed_US.csv           | 6686 ++++++++++----------
+ .../time_series_covid19_confirmed_global.csv       |  560 +-
+ .../time_series_covid19_deaths_US.csv              | 6686 ++++++++++----------
+ .../time_series_covid19_deaths_global.csv          |  560 +-
+ .../time_series_covid19_recovered_global.csv       |  530 +-
+ 301 files changed, 12530 insertions(+), 8479 deletions(-)
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports/06-30-2021.csv
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports_us/06-30-2021.csv
+
+C:\Users\clark\source\repos\COVID-19>cd vscode 
+
+C:\Users\clark\source\repos\COVID-19\vscode>REM node convert.js 
+
+C:\Users\clark\source\repos\COVID-19\vscode>python convert.py 
+4
+8
+11
+15
+19
+23
+27
+30
+34
+38
+42
+46
+49
+53
+57
+61
+65
+68
+72
+76
+80
+84
+87
+91
+95
+99
+
+C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql 
+
+C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
+
+C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
