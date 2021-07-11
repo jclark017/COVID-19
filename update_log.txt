@@ -51310,3 +51310,71 @@ C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql
 C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
 
 C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
+[master f3fc2b279] Daily Update
+ 5 files changed, 192 insertions(+), 62 deletions(-)
+
+C:\Users\clark\source\repos\COVID-19\sql>git push 
+
+C:\Users\clark\source\repos\COVID-19\sql>cd .. 
+
+C:\Users\clark\source\repos\COVID-19>cd ../PowerBI 
+
+C:\Users\clark\source\repos\COVID-19>del daily.csv 
+
+C:\Users\clark\source\repos\COVID-19>wget https://covidtracking.com/api/v1/states/daily.csv 
+
+C:\Users\clark\source\repos\COVID-19>git fetch --all 
+Fetching origin
+Fetching upstream
+
+C:\Users\clark\source\repos\COVID-19>git merge remotes/upstream/master 
+Merge made by the 'recursive' strategy.
+ csse_covid_19_data/README.md                       |    1 +
+ .../csse_covid_19_daily_reports/07-10-2021.csv     | 3988 ++++++++++++
+ .../csse_covid_19_daily_reports_us/07-10-2021.csv  |   59 +
+ .../time_series_covid19_confirmed_US.csv           | 6686 ++++++++++----------
+ .../time_series_covid19_confirmed_global.csv       |  560 +-
+ .../time_series_covid19_deaths_US.csv              | 6686 ++++++++++----------
+ .../time_series_covid19_deaths_global.csv          |  560 +-
+ .../time_series_covid19_recovered_global.csv       |  530 +-
+ 8 files changed, 11559 insertions(+), 7511 deletions(-)
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports/07-10-2021.csv
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports_us/07-10-2021.csv
+
+C:\Users\clark\source\repos\COVID-19>cd vscode 
+
+C:\Users\clark\source\repos\COVID-19\vscode>REM node convert.js 
+
+C:\Users\clark\source\repos\COVID-19\vscode>python convert.py 
+4
+7
+11
+15
+19
+22
+26
+30
+34
+37
+41
+45
+49
+52
+56
+60
+63
+67
+71
+75
+78
+82
+86
+90
+93
+97
+
+C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql 
+
+C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
+
+C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
