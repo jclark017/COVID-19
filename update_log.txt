@@ -51857,3 +51857,76 @@ C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql
 C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
 
 C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
+[master 9ab874739] Daily Update
+ 5 files changed, 1027 insertions(+), 485 deletions(-)
+
+C:\Users\clark\source\repos\COVID-19\sql>git push 
+
+C:\Users\clark\source\repos\COVID-19\sql>cd .. 
+
+C:\Users\clark\source\repos\COVID-19>cd ../PowerBI 
+
+C:\Users\clark\source\repos\COVID-19>del daily.csv 
+
+C:\Users\clark\source\repos\COVID-19>wget https://covidtracking.com/api/v1/states/daily.csv 
+
+C:\Users\clark\source\repos\COVID-19>git fetch --all 
+Fetching origin
+Fetching upstream
+
+C:\Users\clark\source\repos\COVID-19>git merge remotes/upstream/master 
+Auto-merging README.md
+Merge made by the 'recursive' strategy.
+ README.md                                          |   10 +
+ .../csse_covid_19_daily_reports/07-09-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-10-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-11-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-12-2021.csv     | 3988 ++++++++++++
+ .../csse_covid_19_daily_reports_us/07-12-2021.csv  |   59 +
+ .../csse_covid_19_time_series/Errata.csv           |    9 +
+ .../time_series_covid19_confirmed_US.csv           | 6686 ++++++++++----------
+ .../time_series_covid19_confirmed_global.csv       |  560 +-
+ .../time_series_covid19_deaths_US.csv              | 6686 ++++++++++----------
+ .../time_series_covid19_deaths_global.csv          |  560 +-
+ .../time_series_covid19_recovered_global.csv       |  530 +-
+ 12 files changed, 11580 insertions(+), 7514 deletions(-)
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports/07-12-2021.csv
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports_us/07-12-2021.csv
+
+C:\Users\clark\source\repos\COVID-19>cd vscode 
+
+C:\Users\clark\source\repos\COVID-19\vscode>REM node convert.js 
+
+C:\Users\clark\source\repos\COVID-19\vscode>python convert.py 
+4
+7
+11
+15
+19
+22
+26
+30
+33
+37
+41
+45
+48
+52
+56
+59
+63
+67
+71
+74
+78
+82
+86
+89
+93
+97
+
+C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql 
+
+C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
+
+C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
