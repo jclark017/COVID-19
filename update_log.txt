@@ -53248,3 +53248,107 @@ C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql
 C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
 
 C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
+[master c79764abb] Daily Update
+ 5 files changed, 1037 insertions(+), 513 deletions(-)
+
+C:\Users\clark\source\repos\COVID-19\sql>git push 
+
+C:\Users\clark\source\repos\COVID-19\sql>cd .. 
+
+C:\Users\clark\source\repos\COVID-19>cd ../PowerBI 
+
+C:\Users\clark\source\repos\COVID-19>del daily.csv 
+
+C:\Users\clark\source\repos\COVID-19>wget https://covidtracking.com/api/v1/states/daily.csv 
+
+C:\Users\clark\source\repos\COVID-19>git fetch --all 
+Fetching origin
+Fetching upstream
+
+C:\Users\clark\source\repos\COVID-19>git merge remotes/upstream/master 
+Merge made by the 'recursive' strategy.
+ .../csse_covid_19_daily_reports/06-14-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-15-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-16-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-17-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-18-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-19-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-20-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-21-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-22-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-23-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-24-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-25-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-26-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-27-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-28-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-29-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/06-30-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-01-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-02-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-03-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-04-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-05-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-06-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-07-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-08-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-09-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-10-2021.csv     |    4 +-
+ .../csse_covid_19_daily_reports/07-11-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-12-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-13-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-14-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-15-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-16-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-17-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-18-2021.csv     |    2 +-
+ .../csse_covid_19_daily_reports/07-19-2021.csv     | 3988 ++++++++++++
+ .../csse_covid_19_daily_reports_us/07-19-2021.csv  |   59 +
+ .../csse_covid_19_time_series/Errata.csv           |   38 +-
+ .../time_series_covid19_confirmed_US.csv           | 6686 ++++++++++----------
+ .../time_series_covid19_confirmed_global.csv       |  560 +-
+ .../time_series_covid19_deaths_US.csv              | 6686 ++++++++++----------
+ .../time_series_covid19_deaths_global.csv          |  560 +-
+ .../time_series_covid19_recovered_global.csv       |  530 +-
+ 43 files changed, 11631 insertions(+), 7548 deletions(-)
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports/07-19-2021.csv
+ create mode 100644 csse_covid_19_data/csse_covid_19_daily_reports_us/07-19-2021.csv
+
+C:\Users\clark\source\repos\COVID-19>cd vscode 
+
+C:\Users\clark\source\repos\COVID-19\vscode>REM node convert.js 
+
+C:\Users\clark\source\repos\COVID-19\vscode>python convert.py 
+4
+7
+11
+15
+18
+22
+26
+29
+33
+37
+40
+44
+48
+51
+55
+59
+62
+66
+70
+73
+77
+81
+84
+88
+92
+95
+99
+
+C:\Users\clark\source\repos\COVID-19\vscode>cd ../sql 
+
+C:\Users\clark\source\repos\COVID-19\sql>sqlite3 ../vscode/output.db ".read outputSqlite" 
+
+C:\Users\clark\source\repos\COVID-19\sql>git commit -am "Daily Update" 
